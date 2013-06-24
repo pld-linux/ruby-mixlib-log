@@ -5,15 +5,21 @@
 %define		pkgname	mixlib-log
 Summary:	Ruby mix-in for log functionality
 Name:		ruby-%{pkgname}
-Version:	1.4.1
-Release:	2
+Version:	1.6.0
+Release:	1
 License:	Apache v2.0
 Group:		Development/Languages
-Source0:	http://gems.rubyforge.org/gems/%{pkgname}-%{version}.gem
-# Source0-md5:	a5d3427b8ccfa3654954a90ee06a4776
+Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
+# Source0-md5:	98bafe9409a72fd24782d77794b5adf5
 URL:		http://github.com/opscode/mixlib-log
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.665
+%if %{with tests}
+BuildRequires:	ruby-cucumber
+BuildRequires:	ruby-rake
+BuildRequires:	ruby-rspec < 3
+BuildRequires:	ruby-rspec >= 2.10
+%endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
