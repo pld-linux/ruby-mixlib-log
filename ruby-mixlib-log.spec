@@ -6,7 +6,7 @@
 Summary:	Ruby mix-in for log functionality
 Name:		ruby-%{pkgname}
 Version:	1.6.0
-Release:	4
+Release:	5
 License:	Apache v2.0
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
