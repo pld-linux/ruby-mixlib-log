@@ -15,10 +15,12 @@ URL:		http://github.com/opscode/mixlib-log
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.665
 %if %{with tests}
+BuildRequires:	ruby-chefstyle
 BuildRequires:	ruby-cucumber
 BuildRequires:	ruby-rake
-BuildRequires:	ruby-rspec < 3
-BuildRequires:	ruby-rspec >= 2.10
+BuildRequires:	ruby-rspec < 4
+BuildRequires:	ruby-rspec >= 3.7
+BuildRequires:	ruby-github_changelog_generator >= 1.11.3
 %endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
