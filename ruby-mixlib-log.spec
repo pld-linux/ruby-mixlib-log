@@ -6,7 +6,7 @@
 Summary:	Ruby mix-in for log functionality
 Name:		ruby-%{pkgname}
 Version:	2.0.4
-Release:	1
+Release:	2
 License:	Apache v2.0
 Group:		Development/Languages
 Source0:	https://rubygems.org/downloads/%{pkgname}-%{version}.gem
@@ -15,12 +15,10 @@ URL:		https://github.com/chef/mixlib-log
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.665
 %if %{with tests}
-BuildRequires:	ruby-chefstyle
 BuildRequires:	ruby-cucumber
 BuildRequires:	ruby-rake
 BuildRequires:	ruby-rspec < 4
 BuildRequires:	ruby-rspec >= 3.7
-BuildRequires:	ruby-github_changelog_generator >= 1.11.3
 %endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
