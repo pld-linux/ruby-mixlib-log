@@ -9,9 +9,9 @@ Version:	2.0.4
 Release:	1
 License:	Apache v2.0
 Group:		Development/Languages
-Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
+Source0:	https://rubygems.org/downloads/%{pkgname}-%{version}.gem
 # Source0-md5:	fdb9b65a22703e6cef93953959545a37
-URL:		http://github.com/opscode/mixlib-log
+URL:		https://github.com/chef/mixlib-log
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.665
 %if %{with tests}
