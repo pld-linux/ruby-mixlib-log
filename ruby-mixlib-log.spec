@@ -58,7 +58,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README.rdoc NOTICE
+%doc README.md NOTICE
 %{ruby_vendorlibdir}/mixlib/log.rb
 %{ruby_vendorlibdir}/mixlib/log
 %{ruby_specdir}/%{pkgname}-%{version}.gemspec
