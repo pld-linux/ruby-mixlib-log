@@ -1,24 +1,23 @@
 #
 # Conditional build:
-%bcond_without	tests		# build without tests
+%bcond_with	tests		# build with tests (not in gem)
 
 %define		pkgname	mixlib-log
 Summary:	Ruby mix-in for log functionality
 Name:		ruby-%{pkgname}
-Version:	2.0.4
-Release:	3
+Version:	3.2.3
+Release:	1
 License:	Apache v2.0
 Group:		Development/Languages
 Source0:	https://rubygems.org/downloads/%{pkgname}-%{version}.gem
-# Source0-md5:	fdb9b65a22703e6cef93953959545a37
+# Source0-md5:	eef67df7266352021b486ef9504c83d6
 URL:		https://github.com/chef/mixlib-log
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.665
 %if %{with tests}
 BuildRequires:	ruby-cucumber
 BuildRequires:	ruby-rake
-BuildRequires:	ruby-rspec < 4
-BuildRequires:	ruby-rspec >= 3.7
+BuildRequires:	ruby-rspec
 %endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -35,13 +34,12 @@ Requires:	%{name} = %{version}-%{release}
 This package contains documentation for %{name}.
 
 %prep
-%setup -q
+%setup -q -n %{pkgname}-%{version}
 
 %build
 %__gem_helper spec
 
 %if %{with tests}
-# need RSpec2
 rspec
 %endif
 
@@ -56,15 +54,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README.md NOTICE
+%doc LICENSE
 %{ruby_vendorlibdir}/mixlib/log.rb
 %{ruby_vendorlibdir}/mixlib/log
 %{ruby_specdir}/%{pkgname}-%{version}.gemspec
-
-# FIXME, who owns the dir?
 %dir %{ruby_vendorlibdir}/mixlib
-
-%if 0
-%files doc
-%defattr(644,root,root,755)
-%endif
